@@ -1,0 +1,25 @@
+{
+  "files.associations": {
+    "*.python": "python",
+    "*.stg": "plaintext",
+    "*.list": "plaintext",
+    "*.gui_script": "lua",
+    "*.script": "lua",
+    "*.project": "ini",
+    "*.txt": "plaintext",
+    "*.render_script": "lua",
+    "*.pac": "javascript",
+    "*.json": "jsonc",
+    "*.uplugin": "json",
+    "*.layer": "json",
+    "*.bat": "bat",
+    "*.uproject": "json",
+    ".p4config": "ini",
+    "*.asset": "yaml",
+    "*.sch": "json",
+    "*.edt": "edt",
+    "*.vsp": "json",
+    "string": "cpp",
+    "iostream": "cpp"
+  }
+}
