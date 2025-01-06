@@ -1,7 +1,7 @@
 #include <vector>
 #include <doctest.h>
 
-TEST_CASE("vectors can be sized and resized")
+TEST_CASE("vector")
 {
     std::vector<int> v(5);
 
