@@ -2,7 +2,8 @@
 
 #include "util.h"
 
-int main() {
+int main()
+{
     using namespace std;
 
     cout << "Hello, World!" << endl;
