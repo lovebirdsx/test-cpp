@@ -1,5 +1,7 @@
+file(GLOB LIB_SOURCES "lib/*.cpp")
+
 add_library(TestCppLib STATIC
-    util.cpp
+    ${LIB_SOURCES}
 )
 
 target_include_directories(TestCppLib PUBLIC 

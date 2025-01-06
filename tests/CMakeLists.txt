@@ -1,6 +1,7 @@
 enable_testing()
 
-add_executable(TestApp test_app.cpp)
+file(GLOB TEST_SOURCES "*.cpp")
+add_executable(TestApp ${TEST_SOURCES})
 target_include_directories(TestApp PRIVATE ${CMAKE_SOURCE_DIR}/third_party/doctest)
 target_link_libraries(TestApp PRIVATE TestCppLib)
 

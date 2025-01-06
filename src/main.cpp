@@ -1,19 +1,12 @@
 #include <iostream>
-#include <vector>
-#include <string>
 
-int main()
-{
+#include "util.h"
+
+int main() {
     using namespace std;
 
-    vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
-
-    for (const string& word : msg)
-    {
-        cout << word << " ";
-    }
-
-    cout << endl;
+    cout << "Hello, World!" << endl;
+    cout << "The factorial of 5 is " << factorial(5) << endl;
 
     return 0;
 }
