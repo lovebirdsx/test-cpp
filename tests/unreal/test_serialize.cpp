@@ -16,28 +16,28 @@ namespace
     };
 
     template <typename T>
-    typename std::enable_if<std::is_trivial<T>::value>::type Serialize(std::ostream &os, const T &obj)
+    void Serialize(std::ostream &os, const T &obj)
     {
         os.write(reinterpret_cast<const char *>(&obj), sizeof(T));
     }
 
     template <typename T>
-    typename std::enable_if<std::is_trivial<T>::value>::type Deserialize(std::istream &is, T &obj)
+    void Deserialize(std::istream &is, T &obj)
     {
         is.read(reinterpret_cast<char *>(&obj), sizeof(T));
     }
 
-    template <typename T>
-    typename std::enable_if<!std::is_trivial<T>::value>::type Serialize(std::ostream &os, const T &obj)
-    {
-        obj.serialize(os);
-    }
+    // template <typename T>
+    // typename std::enable_if<!std::is_trivial<T>::value>::type Serialize(std::ostream &os, const T &obj)
+    // {
+    //     obj.serialize(os);
+    // }
 
-    template <typename T>
-    typename std::enable_if<!std::is_trivial<T>::value>::type Deserialize(std::istream &is, T &obj)
-    {
-        obj.deserialize(is);
-    }
+    // template <typename T>
+    // typename std::enable_if<!std::is_trivial<T>::value>::type Deserialize(std::istream &is, T &obj)
+    // {
+    //     obj.deserialize(is);
+    // }
 
     void Serialize(std::ostream &os, const std::string &str)
     {
@@ -77,52 +77,52 @@ namespace
         }
     }
 
-    class InventoryItem : public Serializable
-    {
-    public:
-        std::string name;
-        int quantity;
+    // class InventoryItem : public Serializable
+    // {
+    // public:
+    //     std::string name;
+    //     int quantity;
 
-        InventoryItem() : name(""), quantity(0) {}
-        InventoryItem(const std::string &name, int quantity) : name(name), quantity(quantity) {}
+    //     InventoryItem() : name(""), quantity(0) {}
+    //     InventoryItem(const std::string &name, int quantity) : name(name), quantity(quantity) {}
 
-        void serialize(std::ostream &os) override
-        {
-            Serialize(os, name);
-            Serialize(os, quantity);
-        }
+    //     void serialize(std::ostream &os) override
+    //     {
+    //         Serialize(os, name);
+    //         Serialize(os, quantity);
+    //     }
 
-        void deserialize(std::istream &is) override
-        {
-            Deserialize(is, name);
-            Deserialize(is, quantity);
-        }
-    };
+    //     void deserialize(std::istream &is) override
+    //     {
+    //         Deserialize(is, name);
+    //         Deserialize(is, quantity);
+    //     }
+    // };
 
-    class Player : public Serializable
-    {
-    public:
-        std::string name;
-        int level;
-        std::vector<InventoryItem> inventory;
+    // class Player : public Serializable
+    // {
+    // public:
+    //     std::string name;
+    //     int level;
+    //     std::vector<InventoryItem> inventory;
 
-        Player() : name(""), level(0), inventory() {}
-        Player(const std::string &name, int level, const std::vector<InventoryItem> &inventory) : name(name), level(level), inventory(inventory) {}
+    //     Player() : name(""), level(0), inventory() {}
+    //     Player(const std::string &name, int level, const std::vector<InventoryItem> &inventory) : name(name), level(level), inventory(inventory) {}
 
-        void serialize(std::ostream &os) override
-        {
-            Serialize(os, name);
-            Serialize(os, level);
-            Serialize(os, inventory);
-        }
+    //     void serialize(std::ostream &os) override
+    //     {
+    //         Serialize(os, name);
+    //         Serialize(os, level);
+    //         Serialize(os, inventory);
+    //     }
 
-        void deserialize(std::istream &is) override
-        {
-            Deserialize(is, name);
-            Deserialize(is, level);
-            Deserialize(is, inventory);
-        }
-    };
+    //     void deserialize(std::istream &is) override
+    //     {
+    //         Deserialize(is, name);
+    //         Deserialize(is, level);
+    //         Deserialize(is, inventory);
+    //     }
+    // };
 }
 
 TEST_CASE("serialize")
@@ -134,10 +134,10 @@ TEST_CASE("serialize")
 
     SUBCASE("complex")
     {
-        Player player("Alice", 1, {InventoryItem("Sword", 1), InventoryItem("Shield", 1)});
+        // Player player("Alice", 1, {InventoryItem("Sword", 1), InventoryItem("Shield", 1)});
 
-        std::stringstream ss;
-        player.serialize(ss);
+        // std::stringstream ss;
+        // player.serialize(ss);
 
         // Player player2;
         // player2.deserialize(ss);

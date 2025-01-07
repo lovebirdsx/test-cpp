@@ -16,11 +16,11 @@
     "*.uproject": "json",
     ".p4config": "ini",
     "*.asset": "yaml",
+    "*.sch": "json",
+    "*.edt": "edt",
+    "*.vsp": "json",
     "*.unity": "yaml",
     "*.prefab": "yaml",
-    "*.sch": "json",
-    "*.vsp": "json",
-    "*.edt": "edt",
     "string": "cpp",
     "iostream": "cpp",
     "array": "cpp",
@@ -78,6 +78,11 @@
     "thread": "cpp",
     "typeinfo": "cpp",
     "list": "cpp",
-    "typeindex": "cpp"
+    "typeindex": "cpp",
+    "compare": "cpp",
+    "concepts": "cpp",
+    "numbers": "cpp",
+    "semaphore": "cpp",
+    "stop_token": "cpp"
   }
 }
