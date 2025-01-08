@@ -1,8 +1,52 @@
 #include <doctest.h>
 #include <iostream>
+#include <typeinfo>
+#include <memory>
+
+namespace
+{
+    template<typename T, typename Alloc = std::allocator<T>>
+    class MyContainer {};
+
+    template<typename T>
+    using MyVector = MyContainer<T, std::allocator<T>>;
+}
 
 TEST_CASE("type")
 {
+    SUBCASE("typedef")
+    {
+        SUBCASE("primitive type")
+        {
+            typedef int Int;
+            Int a = 0;
+            CHECK_EQ(typeid(a), typeid(int));
+        }        
+
+        SUBCASE("function")
+        {
+            typedef void (*Func)();
+            Func f = []() {};
+            CHECK_EQ(typeid(f), typeid(void (*)()));
+        }
+    }
+
+    SUBCASE("using")
+    {
+        SUBCASE("basic")
+        {
+            using Int = int;
+            Int a = 0;
+            CHECK_EQ(typeid(a), typeid(int));
+        }
+
+        SUBCASE("template")
+        {
+            MyVector<int> v;
+            CHECK_EQ(typeid(v), typeid(MyContainer<int, std::allocator<int>>));
+        }
+    }
+
     SUBCASE("decltype")
     {
         SUBCASE("primitive type")
