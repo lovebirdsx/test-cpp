@@ -1,4 +1,5 @@
 #include <doctest.h>
+#include <typeinfo>
 #include <type_traits>
 #include <string>
 
